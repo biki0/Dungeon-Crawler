@@ -100,7 +100,7 @@ void SkeletonEnemySystem::Update(float dt) {
 					}
 				}
 				else {
-					erb->ApplyForce(0, 0);
+					erb->velocity = { 0,0 };
 					std::shared_ptr<TransformComponent> tc = player->GetComponent<TransformComponent>();
 					std::shared_ptr<RigidBodyComponent> rb = player->GetComponent<RigidBodyComponent>();
 
