@@ -78,6 +78,7 @@ LevelMap::LevelMap() {
                 auto tc = entity->AddComponent<TransformComponent>(tile_data["x"] * SPRITE_SIZE, tile_data["y"] * SPRITE_SIZE);
                 auto sc = entity->AddComponent<SpriteComponent>(tc, "assets/level_map/level1/skeleton.png", SPRITE_SIZE*2, SPRITE_SIZE*2);
                 auto rb = entity->AddComponent<RigidBodyComponent>(tc);
+                entity->AddComponent<EnemyComponent>();
                 entity->AddComponent<SkeletonEnemyComponent>();
                 sc->has_animation = true;
                 //tc->scale = { 2, 2 };

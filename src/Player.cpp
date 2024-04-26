@@ -44,7 +44,7 @@ void Player::cast_fireball() {
     fc->angle = std::atan2(mouse_position.y - transform->position.y, mouse_position.x - transform->position.x);
     tc->rotation = (fc->angle * 180 / PI);
     tc->scale = { 0.5, 0.5 };
-    sc->sprite.setOrigin(sf::Vector2f(sc->sprite.getLocalBounds().width, sc->sprite.getLocalBounds().height) / 2.f);
+    sc->sprite.setOrigin(sf::Vector2f(sc->sprite.getLocalBounds().width, sc->sprite.getLocalBounds().height) / 2.f); //took forever...
 
     fc->direction = { std::cos(fc->angle), std::sin(fc->angle) };
     float length = std::sqrt(fc->direction.x * fc->direction.x + fc->direction.y * fc->direction.y);
