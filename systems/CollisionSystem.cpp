@@ -46,20 +46,23 @@ void CollisionSystem::Update(float dt) {
 
         for (auto it = entities.begin(); it != entities.end(); ++it) {
 
-            if (it->second->entity_type == "spell" && !it->second->has_collided) {
-                //need to fix it so i dont have to call skeletonenemycomponent like that. maybe make an enemycomponent that has is_attacked etc variables
-                if (Collision::pixelPerfectTest(enemy->GetComponent<SpriteComponent>()->sprite, it->second->GetComponent<SpriteComponent>()->sprite)) {
-                    it->second->has_collided = true;
+            auto entity = it->second;
+
+            if (entity->entity_type == "spell" && !entity->has_collided) { //enemy collision with spells
+                
+                if (Collision::pixelPerfectTest(enemy->GetComponent<SpriteComponent>()->sprite, entity->GetComponent<SpriteComponent>()->sprite) 
+                    && enemy->GetComponent<EnemyComponent>()->is_attackable) {
+                    entity->has_collided = true;
                     enemy->has_collided = true;
-                    enemy->GetComponent<SkeletonEnemyComponent>()->is_attacked = true;
+                    enemy->GetComponent<EnemyComponent>()->is_hit = true;
                 }
 
             }
 
-            if (it->second->entity_type == "player") {
-                if (Collision::pixelPerfectTest(enemy->GetComponent<SpriteComponent>()->sprite, it->second->GetComponent<SpriteComponent>()->sprite)) {
-                    it->second->has_collided = true;
-                    enemy->has_collided = true;
+            if (entity->entity_type == "player") { //player enemy collision
+                if (Collision::pixelPerfectTest(enemy->GetComponent<SpriteComponent>()->sprite, entity->GetComponent<SpriteComponent>()->sprite)) {
+                    entity->has_collided = true;
+                    enemy->GetComponent<EnemyComponent>()->attack_player = true;
                     std::cout << "PLAYER HIT ENEMY" << std::endl;
                 }
             }
