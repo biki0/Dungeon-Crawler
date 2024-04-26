@@ -13,9 +13,7 @@ class SkeletonEnemyComponent : public Component {
 	public:
 
 		SkeletonEnemyComponent();
-
 		~SkeletonEnemyComponent();
-
 
 		float attack_range;
 		float follow_range;

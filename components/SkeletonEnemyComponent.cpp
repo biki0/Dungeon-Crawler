@@ -4,7 +4,7 @@
 SkeletonEnemyComponent::SkeletonEnemyComponent() {
 
 	attack_range = 32.f;
-	follow_range = 150.f;
+	follow_range = 100.f;
 	inplace_range = 110.f;
 	
 	follow_forever = false;
