@@ -10,6 +10,7 @@
 #include "../components/SpriteComponent.h"
 #include "../components/RigidBodyComponent.h"
 #include "../components/ColliderComponent.h"
+#include "../components/EnemyComponent.h"
 #include "../components/SkeletonEnemyComponent.h"
 #include "../components/CoinComponent.h"
 #include "../components/FireBallComponent.h"
