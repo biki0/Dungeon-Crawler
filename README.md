@@ -1,4 +1,4 @@
-# WorstGameEver
+# Dungeon Crawler 
 2D dungeon explorer. Work in progress.
 
 Below shows the state of the game so far. None of the game assets are created/owned by me.
